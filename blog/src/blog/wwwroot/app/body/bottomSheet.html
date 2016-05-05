@@ -1,0 +1,19 @@
+﻿<md-bottom-sheet class="md-grid" layout="column" ng-cloak>
+    <div ng-if="bs.kind === 'web'">
+        <md-button class="md-primary md-raise"  ng-click="bs.web()">Vertical Viral</md-button>
+    </div>
+
+    <div>
+        <md-list flex layout="row" layout-align="center center">
+            <md-list-item ng-repeat="item in bs.items">
+                <md-button class="md-grid-item-content" ng-click="bs.pick($index)">
+                    <vv-ng-md-icon icon="{{item.icon}}" class="bottom-sheet" size="{{item.size}}" ng-style="{fill: item.fill}">
+                    </vv-ng-md-icon>
+
+                </md-button>
+                <div class="md-grid-text">{{item.name}}</div>
+            </md-list-item>
+
+        </md-list>
+    </div>
+</md-bottom-sheet>

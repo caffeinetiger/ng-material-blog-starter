@@ -1,0 +1,35 @@
+﻿<md-content id="base" layout="column" flex ng-cloak ng-controller='sideCtrl as sd'>
+    [{{sd.map|json}}]
+    <ui-gmap-google-map ng-show="true"
+                        draggable="true"
+                        pan="true"
+                        zoom="sd.map.zoom"
+                        dragging="true"
+                        center="sd.map.center"
+                        events="sd.map.events"
+                        control="sd.map.control"
+                        refresh="false">
+        <ui-gmap-circle ng-repeat="c in sd.map.circle track by c.id"
+                        center="c.center"
+                        stroke="c.stroke"
+                        fill="c.fill"
+                        radius="c.radius"
+                        visible="c.visible"
+                        geodesic="c.geodesic"
+                        editable="c.editable"
+                        draggable="c.draggable"
+                        clickable="c.clickable">
+        </ui-gmap-circle>
+        <ui-gmap-window show="map.templatedInfoWindow.show"
+                        coords="map.templatedInfoWindow.coords"
+                        options="map.templatedInfoWindow.options"
+                        templateurl="map.templatedInfoWindow.templateUrl"
+                        templateparameter="map.templatedInfoWindow.templateParameter">
+        </ui-gmap-window>
+        <ui-gmap-marker idkey="sd.map.marker.idkey"
+                        coords="sd.map.marker.center"
+                        options="sd.map.marker.options"
+                        draggable="false">
+        </ui-gmap-marker>
+    </ui-gmap-google-map>
+</md-content>

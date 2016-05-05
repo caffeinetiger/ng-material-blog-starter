@@ -1,0 +1,9 @@
+﻿<formly-transclude></formly-transclude>
+<div ng-if="!options.formControl.$touched && !options.validation.show">
+    {{to.hint}}
+</div>
+<div class="opt-messages" ng-messages="fc.$error" ng-if="options.formControl.$touched && options.validation.show">
+    <div class="error-message" ng-message="{{::name}}" ng-repeat="(name, message) in ::options.validation.messages">
+        {{message(fc.$viewValue, fc.$modelValue, this) }}
+    </div>
+</div>

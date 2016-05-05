@@ -1,0 +1,28 @@
+﻿<md-dialog class="admin register long-input">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout-align="space between">
+            <h2>{{rg.labels.title}}</h2>
+            <md-button class="md-fab md-mini" aria-label="cancel" ng-click="rg.cancel()">
+                <vv-ng-md-icon icon="close" class="close" size="18" options='{"duration": 375,  "easing": "elastic-in-out"}'>
+                </vv-ng-md-icon>
+                <md-tooltip class="whitesmoke">{{rg.labels.cancel}}</md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="rg.form" novalidate>
+        <md-dialog-content class="md-dialog-content">
+            <formly-form model="rg.user" fields="rg.fields" form="rg.form">
+            </formly-form>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="end center">
+            <span class="error-message in-dialog">{{rg.error}}</span>
+            <md-button class="md-raised md-accent md-hue-3" ng-click="rg.register()" ng-disabled="rg.form.$invalid">
+                <md-icon md-menu-origin md-svg-icon="social:register"></md-icon>
+                <span class="whitesmoke">{{rg.labels.register}}</span>
+            </md-button>
+            
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+

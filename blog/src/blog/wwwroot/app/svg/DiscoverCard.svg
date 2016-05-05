@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg:svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   version="1.1"
+         viewBox="0 0 3040 640"
+   id="svg3187"
+   height="64mm"
+   width="304mm">
+  <svg:metadata
+     id="metadata2899">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </svg:metadata>
+  <text
+     y="0"
+     x="0">Disc</text>
+  <svg:defs
+     id="defs3">
+    <svg:radialGradient
+       gradientUnits="userSpaceOnUse"
+       id="radialGradient3202"
+       fy="77.588577"
+       fx="141.25"
+       r="77.916664"
+       cy="97.588577"
+       cx="121.25">
+      <svg:stop
+         id="stop2891"
+         offset="0"
+         stop-color="#f0f0f0" />
+      <svg:stop
+         id="stop2893"
+         offset="1"
+         stop-color="#ff8330" />
+    </svg:radialGradient>
+  </svg:defs>
+  <svg:g
+     transform="matrix(0.94947156,0,0,0.949483,496.94722,38.627248)"
+     id="layer1">
+    <svg:path
+       style="fill:url(#radialGradient3202)"
+       id="path3194"
+       transform="translate(-25.8333,3.33333)"
+       d="m 199.16666,97.588577 a 77.916664,77.916664 0 1 1 -155.833324,0 77.916664,77.916664 0 1 1 155.833324,0 z" />
+  </svg:g>
+  <svg:text
+     id="text2903"
+     y="193.30708"
+     x="-9.8425188"
+     style="font-size:220px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana Bold"
+     xml:space="preserve"><svg:tspan
+       y="193.30708"
+       x="-9.8425188"
+       id="tspan2905">Disc</svg:tspan></svg:text>
+  <svg:text
+     id="text2911"
+     y="193.41451"
+     x="655.51172"
+     style="font-size:220px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana Bold"
+     xml:space="preserve"><svg:tspan
+       y="193.41451"
+       x="655.51172"
+       id="tspan2913">ver</svg:tspan></svg:text>
+  <svg:text
+     id="text2820"
+     y="69.291351"
+     x="1043.307"
+     style="font-size:40px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
+     xml:space="preserve"><svg:tspan
+       y="69.291351"
+       x="1043.307"
+       id="tspan2822">®</svg:tspan></svg:text>
+</svg:svg>

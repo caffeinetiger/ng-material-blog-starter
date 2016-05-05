@@ -1,0 +1,66 @@
+﻿<md-toolbar layout="row" class="md-toolbar-tools left">
+    <div class="top-filler" flex="20" hide-xs hide-sm hide-md></div>
+    <div flex layout="row" layout-align="start center">
+        <div hide-gt-md class="hamburger">
+            <md-button class="md-icon-button menu" ng-click="bd.toggle('burger')" aria-label="Settings">
+                <vv-ng-md-icon icon="menu" class="menu"></vv-ng-md-icon>
+            </md-button>
+        </div>
+        <div class="logo">
+            <a href="." style="cursor:pointer">
+                <vv-ng-md-icon class="logo" icon="zoeazy" size="48" fill="whitesmoke"></vv-ng-md-icon>
+
+                <h1 flex>ZoEazy Map</h1>
+            </a>
+        </div>
+        <div hide-sm hide-md hide-xs flex layout="row" layout-align="end center">
+            <div ng-hide="bd.user.isLoged">
+                <md-button class="md-raised md-accent md-hue-3 nav-tab" style="margin-right: 10px;" ng-click="bd.newsletter($event)">
+                    <vv-ng-md-icon icon="content_copy" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Newsletter</span>
+                </md-button>
+
+                <md-button class="md-raised md-accent md-hue-3 nav-tab" style="margin-right: 10px;" ng-click="bd.login($event)">
+                    <vv-ng-md-icon icon="login" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Log In</span>
+                </md-button>
+                <md-button class="md-raised md-accent md-hue-3 nav-tab" ng-click="bd.register($event)">
+                    <vv-ng-md-icon icon="person_add" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Register</span>
+                </md-button>
+            </div>
+            <div ng-show="bd.user.isLoged">
+
+                <md-menu md-position-mode="target-right target">
+                    <md-button aria-label="open log menu" class="md-raised md-accent md-hue-3 nav-tab" style="margin-right: 10px;" ng-click="$mdOpenMenu()">
+                        <vv-ng-md-icon icon="person" class="topnav"></vv-ng-md-icon>
+                        <span class="whitesmoke">{{bd.user.short}}</span>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button aria-label="log out" ng-click="bd.logOut()">
+                                <vv-ng-md-icon icon="logout" class="popout"></vv-ng-md-icon>
+                                <span class="popout">Logout</span>
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button aria-label="newslwtter" ng-click="bd.newsletter($event)">
+                                <vv-ng-md-icon icon="shopping_cart" class="popout"></vv-ng-md-icon>
+                                <span class="popout">Newsletter</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>
+        <div hide-gt-sm layout="row" flex layout-align="end center">
+            <md-button aria-label="see map"style="margin-left: 10px;"
+                       class="md-raised md-accent md-hue-3 nav-tab"
+                       ng-click="bd.toggle()">
+                <vv-ng-md-icon icon="map" class="topnav">
+                </vv-ng-md-icon>
+                <span id="menu" class="whitesmoke"></span>
+            </md-button>
+        </div>
+    </div>
+</md-toolbar>

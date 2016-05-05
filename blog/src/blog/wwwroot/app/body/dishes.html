@@ -1,0 +1,94 @@
+﻿<div layout="column" tabIndex="-1" role="main" flex>
+    <md-item flex layout="row" class="content" id="content" style="overflow-y: hidden">
+        <div flex-gt-sm="20" hide-xs hide-sm></div>
+        <md-sidenav id="quicklinks" md-is-locked-open="$mdMedia('gt-sm')" class="md-whiteframe-z2 md-hue-1" md-component-id="burger">
+            <md-list layout="column" layout-align="center center">
+                <div hide-gt-sm>
+                    <div ng-show="bd.user.isLoged">
+                        <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.newsletter($event)">
+                            <md-icon md-menu-origin md-svg-icon="social:newsletter"></md-icon><span class="whitesmoke">Newsletter</span>
+                        </md-button>
+                        <md-menu md-position-mode="target-right target">
+                            <md-button aria-label="open log interactions menu" class="md-raised md-accent md-hue-3 nav-tab" ng-click="$mdOpenMenu()">
+                                <md-icon md-menu-origin md-svg-icon="social:person"></md-icon><span class="whitesmoke">{{bd.user.userName}}</span>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="bd.logOut()">
+                                        <md-icon md-svg-icon="social:logout" md-menu-align-target></md-icon>
+                                        Logout
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                    <div ng-show="!bd.user.isLoged">
+
+                        <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.newsletter($event)">
+                            <md-icon md-menu-origin md-svg-icon="social:newsletter"></md-icon><span class="whitesmoke">Newsletter</span>
+                        </md-button>
+                    </div>
+                    <div ng-show="!bd.user.isLoged">
+                        <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.login($event)">
+                            <md-icon md-menu-origin md-svg-icon="social:login"></md-icon><span class="whitesmoke">Log In</span>
+                        </md-button>
+                    </div>
+                    <div ng-show="!bd.user.isLoged">
+                        <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.register($event)">
+                            <md-icon md-menu-origin md-svg-icon="social:register"></md-icon><span class="whitesmoke">Register</span>
+                        </md-button>
+                    </div>
+                </div>
+                <br />
+                <nav class="sections">
+                    <md-input-container class="md-block" flex>
+                        <vv-ng-md-icon icon="search"></vv-ng-md-icon>
+                        <label>Search</label>
+                        <input ng-model="bd.clue"
+                               ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+                               ng-change="bd.search();">
+                    </md-input-container>
+                </nav>
+                <br />
+                <nav class="sections" du-scroll-container="dishes-container">
+                    <div>
+                        <a vv-max-min-all state="bd.allMsg" class="md-button md-ink-ripple" href="#" ng-click="bd.openCloseAll()">
+                            <vv-ng-md-icon icon="{{bd.allIcon}}"></vv-ng-md-icon>
+                            <span style="margin-left: 20px">{{bd.allMsg}} Sections</span>
+                            <div class="md-ripple-container"></div>
+                        </a>
+                    </div>
+
+                </nav>
+                <br />
+                <nav class="sections" du-scroll-container="dishes-container">
+                    <div>
+                        <a class="md-button md-ink-ripple" href="#" ng-click="bd.toTop ()">
+                            <span style="font-weight: 700; text-transform: uppercase">
+                                Top
+                            </span>
+                            <div class="md-ripple-container"></div>
+                        </a>
+                    </div>
+                    <div ng-repeat="menu in bd.menus | orderBy: 'sequence'">
+                        <a class="md-button md-ink-ripple" href="#" ng-click="bd.toSection(menu.id)" 
+                           vv-display-name name="menu.name" clue="bd.clue" clss="clue">
+
+                            <div class="md-ripple-container"></div>
+                        </a>
+                    </div>
+                </nav>
+            </md-list>
+        </md-sidenav>
+        <vv-container flex-gt-sm="60" layout="column" flex>
+
+            <div id="dishes-container" layout flex style="overflow-y: auto; overflow-x: hidden;">
+                <div layout="column" flex>
+                    <div style="height: 400px;">
+                        <div ui-view></div>
+                    </div>
+                </div>
+            </div>
+        </vv-container>
+    </md-item>
+</div>

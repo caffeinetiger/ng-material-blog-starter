@@ -1,0 +1,97 @@
+﻿<md-sidenav id="quicklinks" md-is-locked-open="$mdMedia('gt-md')"
+            class="md-whiteframe-z2 md-hue-1 ng-cloak" md-component-id="burger" ng-cloak>
+    <md-list layout="column" layout-align="center center">
+        <div hide-gt-sm>
+            <div ng-show="bd.user.isLoged">
+                <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.newsletter($event)">
+                    <vv-ng-md-icon icon="content_copy" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Newsletter</span>
+                </md-button>
+            </div>
+            <div ng-show="bd.user.isLoged">
+                <md-menu md-position-mode="target-right target">
+                    <md-button aria-label="open log interactions menu" class="md-raised md-accent md-hue-3 nav-tab" ng-click="$mdOpenMenu()">
+                        <vv-ng-md-icon icon="person" class="cart"></vv-ng-md-icon>
+                        <span class="whitesmoke">{{bd.user.userName}}</span>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="bd.logOut()">
+                                <vv-ng-md-icon icon="logout" class="popout"></vv-ng-md-icon>
+                                <span class="popout">Logout</span>
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+            <div ng-show="!bd.user.isLoged">
+                <md-button class="md-raised md-accent md-hue-3 nav-tab vv-padding-vertical" ng-click="bd.newsletter($event)">
+                    <vv-ng-md-icon icon="content_copy" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Newsletter</span>
+                </md-button>
+            </div>
+            <div ng-show="!bd.user.isLoged">
+                <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.login($event)">
+                    <vv-ng-md-icon icon="login" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Log In</span>
+                </md-button>
+            </div>
+            <div ng-show="!bd.user.isLoged">
+                <md-button class="md-raised md-accent md-hue-3  nav-tab vv-padding-vertical" ng-click="bd.register($event)">
+                    <vv-ng-md-icon icon="person_add" class="cart"></vv-ng-md-icon>
+                    <span class="whitesmoke">Register</span>
+                </md-button>
+            </div>
+        </div>
+        <br />
+        <nav class="sections" ng-disabled="bd.currentState !== 'home'"
+             ng-class="{disabled: bd.currentState !== 'home'}"
+             layout>
+            <md-input-container class="md-block" flex>
+                <vv-ng-md-icon icon="search"></vv-ng-md-icon>
+                <label>Search</label>
+                <input ng-model="bd.clue"
+                       ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+                       ng-change="bd.search();">
+
+            </md-input-container>
+            <md-button class="md-fab md-mini md-primary" ng-if="bd.clue"
+                       ng-click="bd.clearSearch()">
+                <vv-ng-md-icon icon="close" size="18" class="close"></vv-ng-md-icon>
+                <md-tooltip md-direction="right">Clear Search</md-tooltip>
+            </md-button>
+        </nav>
+        <br />
+        <nav class="sections" du-scroll-container="dishes-container" ng-disabled="bd.currentState !== 'home'" ng-class="{disabled: bd.currentState !== 'home'}">
+            <div>
+                <a vv-max-min-all state="bd.allMsg" class="md-button md-ink-ripple"
+                   href="#" ng-click="bd.openCloseAll()"
+                   ng-disabled="bd.currentState !== 'home'">
+                    <vv-ng-md-icon icon="{{bd.allIcon}}"></vv-ng-md-icon>
+                    <span style="margin-left: 20px">{{bd.allMsg}} Sections</span>
+                    <div class="md-ripple-container"></div>
+                </a>
+            </div>
+
+        </nav>
+        <br />
+        <nav class="sections" du-scroll-container="dishes-container" ng-disabled="bd.currentState !== 'home'" ng-class="{disabled: bd.currentState !== 'home'}">
+            <div>
+                <a class="md-button md-ink-ripple" href="#" ng-click="bd.toTop ()" ng-disabled="bd.currentState !== 'home'">
+                    <span style="font-weight: 700; text-transform: uppercase">
+                        Top
+                    </span>
+                    <div class="md-ripple-container"></div>
+                </a>
+            </div>
+            <div ng-repeat="menu in bd.menus | orderBy: 'sequence'">
+                <a class="md-button md-ink-ripple" href="#" ng-click="bd.toSection(menu.id)"
+                   vv-display-name name="menu.name" clue="bd.clue" clss="clue"
+                   ng-disabled="bd.currentState !== 'home'">
+
+                    <div class="md-ripple-container"></div>
+                </a>
+            </div>
+        </nav>
+    </md-list>
+</md-sidenav>

@@ -1,0 +1,237 @@
+﻿@{
+
+}
+@section styles {
+
+<style>
+    /* This helps the ng-show/ng-hide animations start at the right place. */
+    /* Since Angular has this but needs to load, this gives us the class early. */
+    .ng-hide, .ng-cloak {
+        display: none !important;
+    }
+</style>
+<style type="text/css">
+</style>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+<meta charset="utf-8" />
+<meta name="description" content="Oh! Eazy! The fast, fun, easy way to order food!" />
+<meta name="author" content="Vertical Virals">
+<link rel="icon" href="/zoeazy.png">
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<!--<link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>-->
+<!-- build:css({src}) styles/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- build:css({src}) styles/app.css -->
+<!-- inject:css -->
+<!-- endinject -->
+<!-- endbuild -->
+
+}
+@section Views{
+<!--[if lt IE 10]>
+     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+   <![endif]-->
+<body ng-app="ZoEazySPA" layout="column" ng-controller="BodyCtrl as bd">
+
+    <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+    <div layout="row" flex ng-cloak>
+        <div layout="column" flex-gt-sm="80" flex-xs flex-sm>
+            <div ng-include="'app/body/topnav.html'"></div>
+            <div layout="column" tabIndex="-1" role="main" flex>
+                <md-item flex layout="row" class="content" id="content" style="overflow-y: hidden">
+                    <div flex-gt-md="10" flex-gt-lg="20" hide-xs hide-sm hide-md></div>
+                    <md-sidenav id="quicklinks" md-is-locked-open="$mdMedia('gt-md')"
+                                class="md-whiteframe-z2 md-hue-1 ng-cloak" md-component-id="burger" ng-cloak style="display: block;">
+                        <md-list layout="column" layout-align="center center">
+                            <div hide-gt-md>
+                                <md-button aria-label="close right sidebar"
+                                           class="md-fab md-mini md-accent vv-padding-vertical"
+                                           ng-click="bd.toggle('burger')">
+                                    <vv-ng-md-icon icon="forward" class="back">
+                                    </vv-ng-md-icon>
+                                    <md-tooltip md-direction="right">back</md-tooltip>
+                                </md-button>
+                                <div ng-show="bd.user.isLoged">
+                                    <md-button class="md-raised md-accent md-hue-3  nav-tab-left vv-padding-vertical" ng-click="bd.newsletter($event)">
+                                        <vv-ng-md-icon icon="content_copy" class="cart"></vv-ng-md-icon>
+                                        <span class="whitesmoke">Newsletter</span>
+                                    </md-button>
+                                </div>
+                                <div ng-show="bd.user.isLoged">
+                                    <md-menu md-position-mode="target-right target">
+                                        <md-button aria-label="open log interactions menu" class="md-raised md-accent md-hue-3 nav-tab-left" ng-click="$mdOpenMenu()">
+                                            <vv-ng-md-icon icon="person" class="cart"></vv-ng-md-icon>
+                                            <span class="whitesmoke">{{bd.user.userName}}</span>
+                                        </md-button>
+                                        <md-menu-content width="4">
+                                            <md-menu-item>
+                                                <md-button ng-click="bd.logOut()">
+                                                    <vv-ng-md-icon icon="logout" class="popout"></vv-ng-md-icon>
+                                                    <span class="popout">Logout</span>
+                                                </md-button>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </div>
+                                <div ng-show="!bd.user.isLoged">
+                                    <md-button class="md-raised md-accent md-hue-3 nav-tab-left vv-padding-vertical" ng-click="bd.newsletter($event)">
+                                        <vv-ng-md-icon icon="content_copy" class="cart"></vv-ng-md-icon>
+                                        <span class="whitesmoke">Newsletter</span>
+                                    </md-button>
+                                </div>
+                                <div ng-show="!bd.user.isLoged">
+                                    <md-button class="md-raised md-accent md-hue-3  nav-tab-left vv-padding-vertical" ng-click="bd.login($event)">
+                                        <vv-ng-md-icon icon="login" class="cart"></vv-ng-md-icon>
+                                        <span class="whitesmoke">Log In</span>
+                                    </md-button>
+                                </div>
+                                <div ng-show="!bd.user.isLoged">
+                                    <md-button class="md-raised md-accent md-hue-3  nav-tab-left vv-padding-vertical" ng-click="bd.register($event)">
+                                        <vv-ng-md-icon icon="person_add" class="cart"></vv-ng-md-icon>
+                                        <span class="whitesmoke">Register</span>
+                                    </md-button>
+                                </div>
+                            </div>
+                            <br />
+                            <md-whiteframe class="md-whiteframe-8dp sections" layout>
+                                <md-input-container class="md-block" flex>
+                                    <vv-ng-md-icon class="filter" icon="search"></vv-ng-md-icon>
+                                    <label>Search</label>
+                                    <input ng-model="bd.clue"
+                                           ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+                                           ng-change="bd.search();">
+
+                                </md-input-container>
+                                <md-button class="md-fab md-mini md-primary" ng-if="bd.clue"
+                                           ng-click="bd.clearSearch()">
+                                    <vv-ng-md-icon icon="close" size="18" class="close"></vv-ng-md-icon>
+                                    <md-tooltip md-direction="right">Clear Search</md-tooltip>
+                                </md-button>
+                            </md-whiteframe>
+                            <br />
+
+
+                            <md-whiteframe class="md-whiteframe-8dp sections">
+                                <div style="padding: 10px;">
+                                    <div>
+                                        <md-checkbox aria-label="Select All"
+                                                     ng-checked="bd.isChecked()"
+                                                     md-indeterminate="bd.isIndeterminate()"
+                                                     ng-click="bd.toggleAll()">
+                                            <span ng-if="bd.isChecked()">Un-</span>Select All
+                                        </md-checkbox>
+                                    </div>
+                                    <div ng-repeat="category in bd.categories">
+                                        <md-checkbox ng-checked="bd.exists(category)" ng-click="bd.toggleCB(category)">
+                                            {{ category }}
+                                        </md-checkbox>
+                                    </div>
+                                </div>
+                            </md-whiteframe>
+
+
+
+                        </md-list>
+                    </md-sidenav>
+                    <md-container layout="column" flex ui-view="content">
+
+                    </md-container>
+
+                </md-item>
+            </div>
+
+            <div ng-include="'app/body/footer.html'"></div>
+        </div>
+        <md-sidenav id="order" class="md-sidenav-right md-whiteframe-z2 order" layout="column"
+                    md-is-locked-open="$mdMedia('gt-sm')" md-component-id="order">
+            <md-toolbar layout="row" class="md-toolbar-tools" layout-align="end center">
+
+                <md-button aria-label="close right sidebar" style="margin-left: 10px;"
+                           class="md-fab md-mini md-accent"
+                           ng-click="bd.toggle()"
+                           hide-gt-sm>
+                    <vv-ng-md-icon icon="reply" class="back">
+                    </vv-ng-md-icon>
+                    <md-tooltip md-direction="left">back</md-tooltip>
+                </md-button>
+            </md-toolbar>
+
+
+            <md-content id="base" layout="column" flex ng-cloak ng-controller='sideCtrl as sd'>
+
+                <ui-gmap-google-map
+                                    dragging="true"
+                                    pan="false"
+                                    zoom="sd.map.zoom"
+
+                                    center="sd.map.center"
+                                    events="sd.map.events"
+                                    control="sd.map.control"
+                                    refresh="true">
+                    <ui-gmap-circle ng-repeat="c in sd.map.circle track by c.id"
+                                    center="c.center"
+                                    stroke="c.stroke"
+                                    fill="c.fill"
+                                    radius="c.radius"
+                                    visible="c.visible"
+                                    geodesic="c.geodesic"
+                                    editable="c.editable"
+                                    draggable="c.draggable"
+                                    clickable="c.clickable">
+                    </ui-gmap-circle>
+
+                    <ui-gmap-marker idkey="sd.map.marker.idkey"
+                                    coords="sd.map.marker.center"
+                                    options="sd.map.marker.options"
+                                    draggable="false">
+                    </ui-gmap-marker>
+                    <ui-gmap-markers models="sd.map.zoeazyMarkers"
+                                     coords="'coord'"
+                                     icon="'icon'"
+                                     click="onClicked"
+                                     options="'options'">
+                    </ui-gmap-markers>
+                    <ui-gmap-markers models="sd.map.yelpMarkers"
+                                     coords="'coord'"
+                                     icon="'icon'"
+                                     click="onClicked"
+                                     options="'options'">
+                    </ui-gmap-markers>
+                </ui-gmap-google-map>
+            </md-content>
+
+        </md-sidenav>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="//oauth.googlecode.com/svn/code/javascript/oauth.js"></script>
+    <script type="text/javascript" src="//oauth.googlecode.com/svn/code/javascript/sha1.js"></script>
+
+    <!-- Custom templates-->
+    <!-- build:js(src) scripts/vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js({src}) scripts/app.js -->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- inject:partials -->
+    <!-- angular templates will be automatically converted in js and inserted here -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    
+</body>
+}

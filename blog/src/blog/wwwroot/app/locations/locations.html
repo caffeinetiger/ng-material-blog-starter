@@ -1,0 +1,191 @@
+<div layout flex style="overflow-x: hidden;overflow-y: visible;">
+    <md-whiteframe layout="column" flex>
+        <md-content id="location" class="header frame" layout="column">
+            <md-whiteframe class="md-whiteframe-12dp md-primary md-hue-2"
+                           layout="column"
+                           layout-xs="row"
+                           layout-sm="row"
+                           layout-align="space-between">
+                <div flex layout="column" layout-align-sm="start start">
+                    <div class="md-headline">Check out restaurants near you:</div>
+                    <form ng-submit="bd.onSubmit()" name="bd.form" novalidate  style="width: 100%;">
+                        <formly-form model="bd.user" fields="bd.fields" form="bd.form">
+                        </formly-form>
+                    </form>
+                </div>
+            </md-whiteframe>
+        </md-content>
+        <div>
+            <section id="zoeazy" class="menu-separator" ng-if="lc.isBusinesses">
+                <md-toolbar class="md-primary md-hue-2">
+                    <div class="md-toolbar-tools" ng-click="lc.clickIconMorph(lc.menu.zoeazy)">
+
+                        <vv-ng-md-icon icon="zoeazy" size="48" fill="whitesmoke"></vv-ng-md-icon>
+                        <span flex></span>
+                        <md-button class="md-icon-button" aria-label="More">
+                            <vv-ng-md-icon icon="{{::lc.menu.zoeazy.icon}}" options='{"duration": 375}'></vv-ng-md-icon>
+                            <md-tooltip md-direction="bottom">
+                                Open / Close
+                            </md-tooltip>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-content class="widget-content" ng-if="lc.menu.zoeazy.in" flex ng-cloak>
+                    <div layout layout-wrap>
+                        <div layout="row" class="vv-maprow md-body-1" flex-gt-md="50" flex-xs="100" flex-sm="100" flex-md="100"
+                             ng-repeat="bs in lc.businesses" ng-click="lc.pick($event, business)">
+                            <div flex>
+                                <div layout="row">
+                                    <div flex>
+                                        <a href="{{::bs.url}}" target="_blank">
+                                            <img class="header" ng-src="{{::bs.image_url}}" alt="{{::bs.name}}" />
+                                        </a>
+                                    </div>
+
+                                    <div flex="45">
+                                        <div class="md-subhead">
+                                            <div>
+                                                <a href="{{::bs.url}}" target="_blank"><span>{{::bs.name}}</span></a>
+                                            </div>
+                                            <div class="rating" layout>
+                                                <div title="{{::bs.rating}} star rating" class="star-img" ng-class="lc.getRating(bs.rating)">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="md-body-1">
+                                                    {{::bs.review_count}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="categories" layout>
+                                            <div>
+                                                {{::lc.getCategoriesZE(bs.categories)}}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div flex="33" class="address">
+                                        <div class="neighborhood" layout>
+                                            <div class="md-body-1">
+                                                {{::lc.getNeighborhoods(bs.location.neighborhoods)}}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                {{::bs.location.display_address[0]}}
+                                            </div>
+                                            <div>
+                                                {{::bs.location.display_address[1]}}
+                                            </div>
+
+                                            <div class="phone">
+                                                {{::bs.phone | phoneFmt}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-caption footer" layout="row" flex>
+
+                                    <img ng-src="{{::bs.snippet_image_url}}" target="_blank" alt="" />
+
+                                    <div flex class="text-left">
+                                        {{::bs.snippet_text}}
+                                        <a ng-if="bs.snippet_text.length" href="bs.url" target="_blank">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </md-content>
+            </section>
+            <section id="yelp" class="menu-separator" ng-if="lc.isGraph">
+                <md-toolbar class="md-primary md-hue-2">
+                    <div class="md-toolbar-tools" ng-click="lc.clickIconMorph(lc.menu.yelp)">
+                        <img src="../../assets/yelp/ios & web/yelp-logo-large.png" />
+                        <span flex></span>
+                        <md-button class="md-icon-button" aria-label="More">
+                            <vv-ng-md-icon icon="{{::lc.menu.yelp.icon}}" options='{"duration": 375}'></vv-ng-md-icon>
+                            <md-tooltip md-direction="bottom">
+                                Open / Close
+                            </md-tooltip>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-content class="widget-content" ng-if="lc.menu.yelp.in" flex ng-cloak>
+                    <div layout layout-wrap>
+                        <div layout="row" class="vv-maprow md-body-1" flex-gt-md="50" flex-xs="100" flex-sm="100" flex-md="100"
+                             ng-repeat="bs in lc.graph.businesses" ng-click="lc.pick($event, business)">
+                            <div flex>
+                                <div layout="row">
+                                    <div flex-25>
+                                        <a href="{{::bs.url}}" target="_blank">
+                                            <img class="header" ng-src="{{::bs.image_url}}" alt="{{::bs.name}}" />
+                                        </a>
+                                    </div>
+
+                                    <div flex="40">
+                                        <div class="md-subhead">
+                                            <div>
+                                                <a href="{{::bs.url}}" target="_blank"><span>{{::bs.name}}</span></a>
+                                            </div>
+                                            <div class="rating" layout>
+                                                <div title="{{::bs.rating}} star rating" class="star-img" ng-class="lc.getRating(bs.rating)">
+                                                    &nbsp;
+                                                </div>
+                                                <div class="md-body-1">
+                                                    {{::bs.review_count}} reviews
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="categories" layout>
+                                            <div>
+                                                {{::bs.categories}}
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div flex="35" class="address">
+                                        <div class="neighborhood" layout>
+                                            <div class="md-body-1">
+                                                {{::lc.getNeighborhoods(bs.location.neighborhoods)}}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                {{::bs.location.display_address[0]}}
+                                            </div>
+                                            <div>
+                                                {{::bs.location.display_address[1]}}
+                                            </div>
+                                            <div>
+                                                {{::bs.location.display_address[2]}}
+                                            </div>
+                                            <div class="phone">
+                                                {{::bs.phone | phoneFmt}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-caption footer" layout="row" flex>
+
+                                    <img ng-src="{{::bs.snippet_image_url}}" target="_blank" alt="" />
+
+                                    <div flex class="text-left">
+                                        {{::bs.snippet_text}}
+                                        <a href="bs.url" target="_blank">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </md-content>
+            </section>
+        </div>
+    </md-whiteframe>
+</div>
+

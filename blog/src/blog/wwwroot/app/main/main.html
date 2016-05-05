@@ -1,0 +1,132 @@
+<div layout flex style="overflow: hidden;">
+    <md-whiteframe layout="column" flex>
+        <md-content id="location" class="header frame" layout="column">
+            <md-whiteframe class="md-whiteframe-12dp md-primary md-hue-2"
+                           layout="column"
+                           layout-xs="row"
+                           layout-sm="row"
+                           layout-align="space-between">
+                <div flex layout="column" layout-align-sm="start start">
+                    <div class="md-headline">Check out restaurants near you:</div>
+
+                    <form ng-submit="bd.onSubmit()" name="bd.form" novalidate style="width: 100%;">
+
+                        <formly-form model="bd.user" fields="bd.fields" form="bd.form">
+                        </formly-form>
+                    </form>
+                </div>
+            </md-whiteframe>
+        </md-content>
+        <md-container id="presentation" layout="column" flex>
+            <div layout="column" layout-align="center center" flex="20" class="md-display-1">
+                <div>Please enter your address</div>
+                <div>Or accept Geolocation request, it is safe!</div>
+            </div>
+            <div layout-gt-sm layout-xs="column" layout-sm="column" layout-wrap flex="40">
+
+                <div flex-xs flex-sm flex-gt-sm="50" layout-align="center center"
+                     style="position: static; text-align: center;">
+
+                    <vv-ng-md-icon icon="{{bd.icons[0]}}" ng-attr-style="fill: {{bd.fills[0]}}" class="presentation" size="40%" options='{"rotation": "none"}'>
+                    </vv-ng-md-icon>
+                    <div>
+                        <div ng-class="{visible: bd.clss1[0], hidden: !bd.clss1[0]}">
+                            <div class="md-headline">
+                                {{bd.labels1[0]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[1], hidden: !bd.clss1[1]}">
+                            <div class="md-headline">
+                                {{bd.labels1[1]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[2], hidden: !bd.clss1[2]}">
+                            <div class="md-headline">
+                                {{bd.labels1[2]}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div flex-xs flex-sm flex-gt-sm="50" layout-align="center center"
+                     style="position: static; text-align: center;">
+
+                    <vv-ng-md-icon icon="{{bd.icons[1]}}" ng-attr-style="fill: {{bd.fills[1]}}" class="presentation" size="40%" options='{"rotation": "none"}'>
+                    </vv-ng-md-icon>
+                    <div>
+
+                        <div ng-class="{visible: bd.clss1[0], hidden: !bd.clss1[0]}">
+                            <div class="md-headline">
+                                {{bd.labels2[0]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[1], hidden: !bd.clss1[1]}">
+                            <div class="md-headline">
+                                {{bd.labels2[1]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[2], hidden: !bd.clss1[2]}">
+                            <div class="md-headline">
+                                {{bd.labels2[2]}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div layout-gt-sm layout-xs="column" layout-sm="column" layout-wrap flex="40">
+                <div flex-xs flex-sm flex-gt-sm="50" layout-align="center center"
+                     style="position: static; text-align: center;">
+
+                    <vv-ng-md-icon icon="{{bd.icons[3]}}" ng-attr-style="fill: {{bd.fills[3]}}" class="presentation" size="40%" options='{"rotation": "none"}'>
+                    </vv-ng-md-icon>
+                    <div>
+                        <div ng-class="{visible: bd.clss1[0], hidden: !bd.clss1[0]}">
+                            <div class="md-headline">
+                                {{bd.labels4[0]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[1], hidden: !bd.clss1[1]}">
+                            <div class="md-headline">
+                                {{bd.labels4[1]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[2], hidden: !bd.clss1[2]}">
+                            <div class="md-headline">
+                                {{bd.labels4[2]}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div flex-xs flex-sm flex-gt-sm="50" layout-align="center center"
+                     style="position: static; text-align: center;">
+
+                    <vv-ng-md-icon icon="{{bd.icons[2]}}" ng-attr-style="fill: {{bd.fills[2]}}" class="presentation" size="40%" options='{"rotation": "none"}'>
+                    </vv-ng-md-icon>
+                    <div>
+
+                        <div ng-class="{visible: bd.clss1[0], hidden: !bd.clss1[0]}">
+                            <div class="md-headline">
+                                {{bd.labels3[0]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[1], hidden: !bd.clss1[1]}">
+                            <div class="md-headline">
+                                {{bd.labels3[1]}}
+                            </div>
+                        </div>
+                        <div ng-class="{visible: bd.clss1[2], hidden: !bd.clss1[2]}">
+                            <div class="md-headline">
+                                {{bd.labels3[2]}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </md-container>
+    </md-whiteframe>
+</div>
+

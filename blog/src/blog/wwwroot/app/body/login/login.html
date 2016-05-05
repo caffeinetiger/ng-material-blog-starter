@@ -1,0 +1,27 @@
+﻿<md-dialog class="admin">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout-align="space between">
+            <h2>{{lg.labels.login}}</h2>
+            <md-button class="md-fab md-mini" aria-label="cancel"  ng-click="lg.cancel()">
+                <vv-ng-md-icon icon="close" class="close" size="18" options='{"duration": 375,  "easing": "elastic-in-out"}'>
+                </vv-ng-md-icon>
+                <md-tooltip class="whitesmoke">{{lg.labels.cancel}}</md-tooltip>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <form name="lg.form" novalidate>
+        <md-dialog-content class="md-dialog-content">
+            <formly-form model="lg.user" fields="lg.fields" form="lg.form">
+            </formly-form>
+        </md-dialog-content>
+        <md-dialog-actions layout="row" layout-align="end center">
+            <span class="error-message in-dialog">{{lg.error}}</span>
+            <md-button class="md-raised md-accent md-hue-3" ng-click="lg.login()" ng-disabled="lg.form.$invalid">
+                <md-icon md-menu-origin md-svg-icon="social:login"></md-icon>
+                <span class="whitesmoke">{{lg.labels.login}}</span>
+            </md-button>
+
+            
+        </md-dialog-actions>
+    </form>
+</md-dialog>

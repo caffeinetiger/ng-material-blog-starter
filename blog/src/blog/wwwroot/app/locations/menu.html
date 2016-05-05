@@ -1,0 +1,53 @@
+﻿
+<div layout-gt-sm="row">
+    <div flex layout="row" layout-align="center center">
+        <div class="vv-subhead" flex="70">&nbsp;</div>
+        <div class="vv-subhead" flex="30">title</div>
+    </div>
+    <div flex hide-xs hide-sm layout="row" layout-align="center center" class="vv-right-column">
+        <div class="vv-subhead" flex="70">&nbsp;</div>
+        <div class="vv-subhead" flex="30">title</div>
+    </div>
+</div>
+
+<div layout-gt-sm="row" class="vv-line">
+    <div flex layout layout-align="start center" class="vv-row vv-last-row">
+        <div class="vv-name md-primary md-hue-3" flex="70">name</div>
+        <div class="vv-price" flex="30">price</div>
+    </div>
+    <div ng-click(menu) flex layout layout-align="start center" class="vv-row vv-last-row vv-right-column">
+        <div class="vv-name md-primary md-hue-3" flex="70">pre<span class="clue">mid</span>post</div>
+        <div class="vv-price" flex="30">price</div>
+    </div>
+</div>;
+
+<div flex class="footer">{{footer}}</div>;
+
+
+
+
+<md-input-container>
+    <div layout>
+        <div layout="column">
+            iQty
+        </div>
+        <div layout="column">
+            <div>button up</div>
+            <div>button down</div>
+        </div>
+    </div>
+</md-input-container>
+<md-input-container style="width: 100%">
+    
+    <div layout>
+        <div layout="column">
+            <formly-transclude>
+
+            </formly-transclude>
+        </div>
+        <div layout="column">
+            <div>button up</div>
+            <div>button down</div>
+        </div>
+    </div>
+</md-input-container>

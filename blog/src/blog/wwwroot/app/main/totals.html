@@ -1,0 +1,59 @@
+﻿<md-content id="totals" layout="column" flex="none" ng-cloak layout-padding>
+    <md-whiteframe class="md-whiteframe-12dp md-primary md-hue-3" layout="column">
+        <div layout>
+            <div flex="60">Subtotal ({{bd.user.order.items.length}} items)</div>
+            <div flex="35" class="text-right">
+                {{bd.user.order.total.subtotal.amount | currency: '': 2}}
+            </div>
+        </div>
+        <div layout>
+            <div flex="55">Tax ({{bd.user.order.total.tax.percentage.getRateStr()}})</div>
+            <div flex="40" class="text-right">
+                {{bd.user.order.total.tax.amount | currency: '': 2}}
+            </div>
+        </div>
+        <div layout ng-if="bd.user.order.total.deliveryFee.amount">
+            <div flex="55">Delivery Fee</div>
+            <div flex="40" class="text-right">
+                {{bd.user.order.total.deliveryFee.amount | currency: '': 2}}
+            </div>
+        </div>
+        <div ng-if="bd.user.order.kind && bd.user.order.payMethod" class="tip-row" layout layout-align="start end">
+
+            <div flex="55">
+                Tip
+                <md-input-container style="position: absolute">
+                    <input ng-model="bd.user.order.total.tip.percentage.rate" ng-blur="bd.adjust(bd.user.order.total.tip.percentage.rate)" style="width: 40%; color: #fff;">%
+                </md-input-container>
+                <md-button class="md-icon-button md-accent inline top" aria-label="plus one dish" ng-click="bd.adjust(bd.user.order.total.tip, 1)">
+                    <vv-ng-md-icon icon="keyboard_arrow_up" class="tip"></vv-ng-md-icon>
+                    <md-tooltip md-direction="right">+1</md-tooltip>
+                </md-button>
+
+                <md-button class="md-icon-button md-accent inline bottom" aria-label="minus one dish" ng-click="bd.adjust(bd.user.order.total.tip, -1)">
+                    <vv-ng-md-icon icon="keyboard_arrow_down" class="tip"></vv-ng-md-icon>
+                    <md-tooltip md-direction="right">-1</md-tooltip>
+                </md-button>
+            </div>
+            <div flex="40" class="text-right">
+                {{bd.user.order.total.tip.amount | currency: '': 2}}
+
+            </div>
+        </div>
+        <div ng-if="!(bd.user.order.kind && bd.user.order.payMethod)" class="tip-row" layout layout-align="start end">
+
+            <div flex="55">
+                Tip not included
+            </div>
+            <div flex="40">&nbsp;</div>
+        </div>
+        <div layout class="md-accent md-hue-3">
+            <div class="md-headline total" flex="55">
+                Total
+            </div>
+            <div flex="40" class="md-headline total text-right">
+                {{bd.user.order.total.amount | currency: '': 2}}
+            </div>
+        </div>
+    </md-whiteframe>
+</md-content>

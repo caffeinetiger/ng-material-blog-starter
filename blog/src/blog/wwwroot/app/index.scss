@@ -1,0 +1,1599 @@
+/**
+ *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+@import url(//fonts.googleapis.com/css?family=Roboto:400,700|Roboto:400,700,700italic,400italic);
+@import "../../resources/bourbon/bourbon";
+@import "../../resources/neat/neat";
+//@import "../../resources/bitters/base";
+//@import "../../resources/refills/all";
+//@import "../../resources/sass/compass";
+
+$button-xsmall-width: 34px;
+$button-xxxsmall-width: 20px;
+$button-navigation-width: 120px;
+$button-navigation-tab-width: 120px;
+$button-navigation-height: 34px;
+$button-zindex: 40;
+
+$sidenav-quicklinks-md: 15%;
+$sidenav-quicklinks-button-height: 20px;
+
+$toolbar-clue: rgba(57,73,171,0.4);
+
+$sidenav-order-width: 20%;
+
+$map-height-size-xs: 400px;
+$map-height-size-lg: 601px;
+$map-height-size-sm1: $map-height-size-xs +1;
+$map-height-size-sm1: $map-height-size-lg -1;
+
+$frame-xs: 200px;
+$frame-sm: 200px;
+$frame-md: 250px;
+$frame-lg: 250px;
+$frame-location-xs: 200px;
+$frame-location-sm: 200px;
+$frame-location-md: 250px;
+$frame-location-lg: 250px;
+
+$layout-breakpoint-xs: 599px;
+$layout-breakpoint-gt-xs: ($layout-breakpoint-xs +1);
+$layout-breakpoint-sm: 959px;
+$layout-breakpoint-gt-sm: ($layout-breakpoint-sm +1);
+$layout-breakpoint-md: 1279px;
+$layout-breakpoint-gt-md: ($layout-breakpoint-md +1);
+$layout-breakpoint-lg: 1919px;
+$layout-breakpoint-gt-lg: ($layout-breakpoint-lg +1);
+$layout-breakpoint-gt-xl: $layout-breakpoint-gt-lg;
+
+$accent-1: #f4511e;
+$accent-2: #ff9E80;
+$accent-3: #D84315;
+$accent-3darker: darken($accent-3,5%);
+$primary-1: #c5cae9;
+$primary-2: #3949ab;
+$primary-3: #3d5afe;
+$warn-3: #c62828;
+$background-3: rgba(0, 0, 0, 0.09);
+
+$sidenav-nav-background: $accent-1;
+$sidenav-nav-border: darken($sidenav-nav-background,10%);
+
+$default-hue2-bg: $primary-2;
+
+$default-hue3-bg: #8c9eff;
+
+$alternate-color: whitesmoke;
+$label-color: darken($alternate-color,10%);
+$text-color: rgba(0, 0, 0, 0.87);
+$subheading: 16px;
+$border-radius: 4px;
+$border-radius-header: 20px;
+$border-radius-reviewer: 10px;
+$sidenav-nav-background-disabled: $background-3;
+$sidenav-nav-border-disabled: darken($sidenav-nav-background-disabled,10%);
+$alternate-color-disabled: whitesmoke;
+
+@mixin md-shadow-bottom-z-1() {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+@mixin md-shadow-bottom-z-2() {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+
+button.md-raised.md-button {
+    @include md-shadow-bottom-z-1();
+
+    &:active {
+        @include md-shadow-bottom-z-2();
+    }
+}
+
+footer div#extra-data {
+    align-self: flex-end;
+    padding: 0 32px;
+    width: 100%;
+    text-align: left;
+    font-size: small;
+    border-top: 1px solid #ddd;
+
+    & div {
+        padding: 0 20px;
+    }
+
+    & button {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        @media screen and (max-width: $layout-breakpoint-sm) {
+            min-height: inherit;
+            line-height: inherit;
+        }
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: $text-color;
+    padding: 0.2em 0;
+}
+
+.item-name {
+    color: $text-color;
+    font-size: 17px;
+}
+
+.item-config {
+    color: rgba(0,0,0,0.6);
+    font-size: 15px;
+}
+
+.item-instructions {
+    color: rgba(0,0,0,0.4);
+    font-size: 13px;
+}
+
+.whitesmoke {
+    color: $alternate-color;
+}
+
+md-whiteframe.md-primary {
+    & div.error-message {
+        text-shadow: 1px 1px $text-color;
+    }
+
+    & md-tabs div.error-message {
+        text-shadow: none;
+    }
+}
+
+div.hint {
+    font-style: italic;
+    color: $alternate-color;
+    text-shadow: 1px 1px #333;
+}
+
+md-tabs div.hint, md-dialog div.hint {
+    color: $primary-2;
+    text-shadow: none;
+}
+
+vv-ng-md-icon {
+    fill: $alternate-color;
+    position: absolute;
+    border: 0;
+    top: 8px;
+
+    &.add-item {
+        top: 16px;
+        left: 16px;
+
+        @media screen and (max-width: $layout-breakpoint-sm) {
+            left: 2px;
+        }
+    }
+
+    &.back {
+        top: 6px;
+        left: 7px;
+    }
+
+    &.bottom-sheet {
+        position: static;
+    }
+
+    &.cart {
+        left: 2px;
+        top: 8px;
+    }
+
+    &.charge {
+        top: 16px;
+        left: 16px;
+    }
+
+    &.close {
+        top: 4px;
+        left: 11px;
+    }
+
+    &.filter {
+        top: 8px;
+    }
+
+    &.section {
+        top: 0;
+    }
+
+    &.item {
+        left: -1px;
+
+        @media screen and (min-width: $layout-breakpoint-gt-xs) {
+            left: 5px;
+        }
+
+
+        &.edit, &.plus {
+            fill: #c5cae9;
+        }
+
+        &.delete, &.minus {
+            fill: #ff7043;
+        }
+    }
+
+    &.logo {
+        top: -12px;
+        left: -45px;
+    }
+
+    &.menu {
+        left: 8px;
+    }
+
+    &.popout {
+        left: 8px;
+        fill: rgba(120,120,120,0.5);
+    }
+
+    &.presentation {
+        position: static;
+        fill: red;
+        top: 0;
+        left: 0;
+    }
+
+    &.notification {
+        right: 0;
+        top: -4px;
+    }
+
+    &.tip {
+        left: 0;
+    }
+
+    &.topnav {
+        left: 2px;
+        top: 8px;
+    }
+}
+
+md-toolbar {
+    &.md-toolbar-tools.left button {
+        left: 5px;
+    }
+
+    & button.md-button.topnav {
+        @extend .text-lowercase;
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+        padding-left: 17px;
+    }
+
+    button.md-button.menu {
+        margin-left: 0;
+        padding-left: 0;
+        margin-right: 0;
+        left: -10px;
+    }
+
+    div.top-filler {
+        margin-right: 40px;
+    }
+
+    div.hamburger {
+        margin-right: 40px;
+    }
+
+    div.logo {
+        @media screen and (min-width: $layout-breakpoint-xs) {
+            width: 150px;
+        }
+
+        position: relative;
+    }
+
+    p.note {
+        font-size: 1.2rem;
+    }
+
+    @media screen and (max-width: 400px) {
+        &.md-toolbar-tools {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+
+    & div.yelp {
+        color: blue;
+        background: url('../assets/images/wood.png') repeat;
+        overflow: hidden;
+    }
+}
+
+md-dialog {
+    & button.md-button {
+        @extend .text-lowercase;
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+    }
+
+    & md-dialog-actions {
+        border-top: 1px solid $background-3;
+    }
+
+    & md-dialog-content {
+        padding: 15px;
+    }
+
+    &.admin {
+        min-width: 400px;
+        width: 400px;
+        max-width: 400px;
+        overflow: hidden;
+
+        &.register {
+            min-width: 450px;
+            width: 450px;
+            max-width: 450px;
+            overflow: hidden;
+            min-height: 670px;
+            height: 670px;
+            max-height: 670px;
+
+            & md-checkbox {
+                margin-top: 16px;
+            }
+        }
+    }
+
+    &.long-input md-input-container {
+        margin: 18px 0 0 0;
+        width: 90%;
+    }
+
+    &.vv-dish {
+
+        @media screen and (min-width: $layout-breakpoint-gt-sm) {
+            width: 50%;
+            max-width: 50%;
+            min-width: 50%;
+        }
+
+        @media screen and (max-width: $layout-breakpoint-sm) {
+            width: 90%;
+            max-width: 90%;
+            min-width: 90%;
+        }
+    }
+
+    & .md-toolbar-tools h2 {
+        font-weight: 600;
+    }
+
+    button.md-button.add-item {
+        min-width: 162px;
+        width: 162px;
+        max-width: 162px;
+        min-height: 60px;
+        height: 60px;
+        max-height: 60px;
+        font-size: 24px;
+    }
+}
+
+md-container#presentation {
+    & div.visible, & div.hidden {
+        overflow: hidden;
+        /* This container should not have padding, borders, etc. */
+    }
+
+    & div.visible {
+        visibility: visible;
+        opacity: 1;
+        -moz-transition: opacity 0.6s linear;
+        -o-transition: opacity 0.6s linear;
+        -webkit-transition: opacity 0.6s linear;
+        transition: opacity 0.6s linear;
+    }
+
+
+    & div.hidden {
+        visibility: hidden;
+        opacity: 0;
+        -moz-transition: visibility 0s 0.6s, opacity 0.6s linear;
+        -o-transition: visibility 0s 0.6s, opacity 0.6s linear;
+        -webkit-transition: visibility 0s 0.6s, opacity 0.6s linear;
+        transition: visibility 0s 0.6s, opacity 0.6s linear;
+    }
+
+    & div.visible > div,
+    & div.hidden > div {
+        color: blue;
+    }
+
+    & div.hidden > div {
+        margin-top: -10000px;
+        -moz-transition: margin-top 0s 0.6s;
+        -o-transition: margin-top 0s 0.6s;
+        -webkit-transition: margin-top 0s 0.6s;
+        transition: margin-top 0s 0.6s;
+    }
+}
+
+md-content {
+    &#location {
+
+        & md-input-container {
+            & label {
+                color: $label-color;
+            }
+
+            & input {
+                color: $alternate-color;
+                border-bottom-color: $label-color;
+            }
+        }
+
+        & div.md-off {
+            border-color: $label-color;
+        }
+
+        & md-whiteframe {
+            width: 60%;
+
+            &.island {
+                background-color: rgba(51,51,51,.5);
+                border-radius: $border-radius;
+            }
+        }
+
+        @media screen and (max-width: $layout-breakpoint-xs) {
+            height: $frame-location-xs;
+            min-height: $frame-location-xs;
+            max-height: $frame-location-xs;
+
+            & md-whiteframe {
+                margin: 10px;
+                padding: 8px;
+                width: 97%;
+            }
+
+            & md-whiteframe div.md-headline {
+                font-size: 1.2em;
+            }
+
+            & md-whiteframe div.md-subhead {
+                font-size: 0.7em;
+            }
+        }
+
+        @media screen and (min-width: $layout-breakpoint-gt-xs) and (max-width: $layout-breakpoint-sm) {
+            height: $frame-location-sm;
+            min-height: $frame-location-sm;
+            max-height: $frame-location-sm;
+
+            & md-whiteframe {
+                margin: 10px;
+                padding: 10px;
+                width: 97%;
+            }
+        }
+
+        @media screen and (min-width: $layout-breakpoint-gt-sm) and (max-width: $layout-breakpoint-md) {
+            height: $frame-location-md;
+            min-height: $frame-location-md;
+            max-height: $frame-location-md;
+
+            & md-whiteframe {
+                margin: 10px;
+                padding: 12px;
+                width: 50%;
+            }
+        }
+    }
+
+    &#presentation {
+        & div.md-off {
+            border-color: $label-color;
+        }
+
+        @media screen and (max-width: $layout-breakpoint-xs) {
+            &.frame {
+                height: $frame-xs;
+                min-height: $frame-xs;
+                max-height: $frame-xs;
+
+                & md-whiteframe {
+                    margin: 10px;
+                    padding: 8px;
+                    width: 100%;
+                }
+
+                & md-whiteframe div.md-headline {
+                    font-size: 1.2em;
+                }
+
+                & md-whiteframe div.md-subhead {
+                    font-size: 0.7em;
+                }
+            }
+        }
+
+        @media screen and (min-width: $layout-breakpoint-gt-xs) and (max-width: $layout-breakpoint-sm) {
+            &.frame {
+                height: $frame-sm;
+                min-height: $frame-sm;
+                max-height: $frame-sm;
+
+                & md-whiteframe {
+                    margin: 10px;
+                    padding: 10px;
+                }
+            }
+        }
+
+        @media screen and (min-width: $layout-breakpoint-gt-sm) and (max-width: $layout-breakpoint-md) {
+            &.frame {
+                height: $frame-md;
+                min-height: $frame-md;
+                max-height: $frame-md;
+
+                & md-whiteframe {
+                    margin: 10px;
+                    padding: 12px;
+                }
+            }
+        }
+    }
+
+    &#base {
+        &.checkout {
+            height: 100%;
+            overflow-y: auto;
+
+            & div.marquee {
+                padding: 5%;
+                background-color: transparent;
+            }
+
+            & md-whiteframe {
+                padding: 5%;
+                width: 100%;
+            }
+        }
+
+        & form {
+            width: 100%;
+
+            & md-input-container {
+                margin: 9px 0;
+            }
+
+            label {
+                color: $label-color;
+            }
+
+            input.md-input, textarea {
+                color: $alternate-color;
+                border-color: $label-color;
+            }
+
+            md-radio-button.md-default-theme .md-off, md-radio-button .md-off {
+                border-color: $label-color;
+            }
+
+            & md-tabs {
+                label {
+                    color: $default-hue2-bg;
+                }
+
+                input.md-input, textarea {
+                    color: inherit;
+                    border-color: $default-hue2-bg;
+                }
+
+                md-radio-button.md-default-theme .md-off, md-radio-button .md-off {
+                    border-color: $default-hue2-bg;
+                }
+            }
+        }
+
+
+        & button#place-order {
+            @extend .text-lowercase;
+            margin: 0;
+            width: 100%;
+            min-height: 60px;
+            height: 60px;
+            max-height: 60px;
+            font-size: 24px;
+            background-color: $accent-3;
+
+            &[disabled] {
+                background-color: #888 !important;
+            }
+
+            & div.footnote {
+                @extend .whitesmoke;
+                position: absolute;
+                top: 30px;
+                right: 10px;
+            }
+
+            &:hover {
+                background-color: $accent-3darker;
+            }
+        }
+
+        & md-whiteframe#header {
+            @extend .text-lowercase;
+            margin: 0 0 20px 0;
+            width: 100%;
+            min-height: 60px;
+            height: 60px;
+            max-height: 60px;
+            padding: 2%;
+            position: relative;
+
+            & div.footnote {
+                @extend .whitesmoke;
+                position: absolute;
+                top: 35px;
+                right: 10px;
+            }
+
+            & div.label {
+                width: 100%;
+            }
+        }
+    }
+
+    &.widget-content {
+        overflow: hidden;
+
+        &.in {
+            height: 100%;
+            -moz-transition: height .3s linear;
+            -o-transition: height .3s linear;
+            -webkit-transition: height .3s linear;
+            transition: height .3s linear;
+        }
+
+        &.out {
+            height: 0;
+            -moz-transition: height .3s linear;
+            -o-transition: height .3s linear;
+            -webkit-transition: height .3s linear;
+            transition: height .3s linear;
+        }
+
+        & div.header, div.footer {
+            background-color: #ffecb3;
+            text-align: center;
+        }
+    }
+}
+
+md-container {
+    &#presentation {
+        color: blue;
+        background: url('../assets/images/wood.png') repeat;
+        overflow: hidden;
+    }
+}
+
+
+md-sidenav {
+    &#order {
+
+        & md-content {
+            overflow: hidden;
+        }
+
+        & md-input-container {
+            margin-bottom: 0;
+        }
+    }
+
+    & md-content#order-items {
+        overflow-y: visible;
+
+        & div.buttons-quantity {
+            position: relative;
+        }
+
+        & div.total {
+            margin-top: 10px;
+        }
+
+        & div.order-item {
+            border-bottom: 1px dotted $default-hue2-bg;
+            cursor: pointer;
+
+            &:first-child {
+                border-top: 1px dotted $default-hue2-bg;
+            }
+
+            &:nth-child(odd) {
+                background: $background-3;
+            }
+        }
+    }
+
+    & md-content#base {
+        @media screen and (max-width: 599px) {
+            & form#bag {
+                padding-top: 4px;
+                padding-bottom: 4px;
+            }
+
+            & md-input-container {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &#quicklinks {
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        & md-whiteframe.sections {
+            background-color: $sidenav-nav-background;
+            border: 1px solid $sidenav-nav-border;
+            color: $alternate-color;
+            width: 80%;
+
+            &.disabled {
+                background-color: $sidenav-nav-background-disabled;
+                border: 1px solid $sidenav-nav-border-disabled;
+                color: $alternate-color-disabled;
+            }
+
+            & > div {
+                padding: 0;
+                margin: 0;
+            }
+
+            & md-input-container {
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-bottom: 5px;
+                vertical-align: bottom;
+
+                & label, input {
+                    color: $alternate-color;
+                    border-color: $alternate-color;
+                    margin-left: 25px;
+                    width: 85%;
+
+                    &:focus {
+                        border-color: $alternate-color;
+                    }
+                }
+            }
+
+            & div.md-errors-spacer {
+                min-height: 0;
+                max-height: 0;
+                height: 0;
+            }
+
+            & a.md-button {
+                text-align: left;
+                line-height: $sidenav-quicklinks-button-height;
+                height: $sidenav-quicklinks-button-height;
+                max-height: $sidenav-quicklinks-button-height;
+                min-height: $sidenav-quicklinks-button-height;
+                margin: 0;
+                padding-left: 8px;
+                font-size: $subheading;
+                font-weight: 600;
+                text-transform: none;
+
+                & span.clue {
+                    background-color: $alternate-color;
+                    color: $sidenav-nav-background;
+                }
+            }
+        }
+    }
+}
+
+md-content#totals {
+    padding: 0;
+
+    @media screen and (max-width: $layout-breakpoint-xs) {
+        & div.layout-row {
+            padding: 4px;
+        }
+
+        & div.tip-row {
+            padding-bottom: 10px !important;
+            margin-bottom: 10px !important;
+        }
+
+        & div.md-headline {
+            line-height: 24px;
+            font-weight: normal;
+            font-size: 20px;
+        }
+    }
+
+
+    & div.tip-row {
+        padding-top: 0;
+        padding-bottom: 20px;
+        margin-bottom: 25px;
+
+        & div:first-child {
+            position: relative;
+        }
+    }
+
+    & button.inline {
+        height: 24px;
+        padding: 0;
+        margin: 0;
+
+        &.top {
+            left: 0;
+            top: -10px;
+        }
+
+        &.bottom {
+            left: -42px;
+            top: 49px;
+        }
+    }
+}
+
+md-content#base {
+    @media screen and (max-width: $layout-breakpoint-xs) {
+        & div.layout-row {
+            padding: 4px;
+        }
+
+        & div.tip-row {
+            padding-bottom: 10px !important;
+            margin-bottom: 10px !important;
+        }
+
+        & div.md-headline {
+            line-height: 24px;
+            font-weight: normal;
+            font-size: 20px;
+        }
+    }
+
+    & div.tip-row {
+        padding-top: 0;
+        padding-bottom: 20px;
+        margin-bottom: 25px;
+
+        & div:first-child {
+            position: relative;
+        }
+    }
+
+    & button.inline {
+        height: 24px;
+        padding: 0;
+        margin: 0;
+
+        &.top {
+            left: 0;
+            top: -10px;
+        }
+
+        &.bottom {
+            left: -42px;
+            top: 49px;
+        }
+    }
+}
+
+@media (min-width: $layout-breakpoint-md) {
+    md-sidenav.quicklinks {
+        min-width: $sidenav-quicklinks-md !important;
+        max-width: $sidenav-quicklinks-md !important;
+        width: $sidenav-quicklinks-md !important;
+    }
+
+    md-sidenav.order {
+        min-width: $sidenav-order-width !important;
+        max-width: $sidenav-order-width !important;
+        width: $sidenav-order-width !important;
+    }
+}
+
+button {
+    & span {
+        &.text-none {
+            text-transform: none;
+        }
+
+        &.popout {
+            padding-left: 25px;
+        }
+    }
+}
+
+.thumbnail {
+    height: 200px;
+
+    img.pull-right {
+        width: 50px;
+    }
+}
+
+.techs {
+    display: flex;
+    @include flex-flow(row wrap);
+
+    md-card {
+        width: 30%;
+
+        img.pull-right {
+            float: right;
+            width: 50px;
+        }
+    }
+}
+
+
+/* messages fanciness */
+.opt-messages {
+    position: relative;
+}
+
+.opt-messages, .error-message {
+    opacity: 1;
+    -moz-transition: .3s linear all;
+    -o-transition: .3s linear all;
+    -webkit-transition: .3s linear all;
+    transition: .3s linear all;
+}
+
+.error-message {
+    font-size: .7em;
+    width: 100%;
+    color: #a94442;
+
+    &.in-dialog {
+        line-height: 45px;
+    }
+}
+
+.opt-messages.ng-enter.ng-enter-active,
+.error-message.ng-enter.ng-enter-active {
+    opacity: 1;
+    top: 0;
+}
+
+.opt-messages.ng-enter,
+.error-message.ng-enter {
+    opacity: 0;
+    top: -10px;
+}
+
+.opt-messages.ng-leave,
+.error-message.ng-leave {
+    opacity: 1;
+    top: 0;
+}
+
+.opt-messages.ng-leave-active,
+.error-message.ng-leave-active {
+    opacity: 0;
+    top: -10px;
+}
+
+div.order {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+button.vv-xsmall {
+    min-width: $button-xsmall-width;
+    max-width: $button-xsmall-width;
+    width: $button-xsmall-width;
+    height: $button-xsmall-width;
+    min-height: $button-xsmall-width;
+    max-height: $button-xsmall-width;
+}
+
+button.vv-xxxsmall {
+    min-width: $button-xxxsmall-width;
+    max-width: $button-xxxsmall-width;
+    width: $button-xxxsmall-width;
+    height: $button-xxxsmall-width;
+    min-height: $button-xxxsmall-width;
+    max-height: $button-xxxsmall-width;
+    padding: 0;
+    line-height: normal;
+}
+
+button.nav-tab-left {
+    min-width: $button-navigation-tab-width !important;
+    max-width: $button-navigation-tab-width !important;
+    width: $button-navigation-width !important;
+    min-height: $button-navigation-height;
+    max-height: $button-navigation-height;
+    height: $button-navigation-height;
+    text-transform: lowercase;
+    z-index: $button-zindex;
+    margin: 0;
+
+    &.vv-padding-vertical {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
+
+button.nav-tab {
+    @extend button.nav-tab-left;
+
+    & span#items {
+        &:before {
+            content: "see items";
+        }
+    }
+      & span#menu {
+        &:before {
+            content: "see map";
+        }
+    }
+    & span#checkout {
+        &:before {
+            content: "checkout";
+        }
+    }
+
+    & span#addItems {
+        &:before {
+            //font-size:11px;
+            content: "    back";
+        }
+    }
+
+    & span#clear {
+        &:before {
+            content: "clear order";
+        }
+    }
+
+    & span#home {
+        &:before {
+            content: "    home";
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-xs) {
+        // right: 40px;
+    }
+
+    @media screen and (max-width: 400px) {
+        right: 5px;
+        min-width: 70px !important;
+        max-width: 70px !important;
+        width: 70px !important;
+        font-size: 10px !important;
+
+        & span#items {
+            &:before {
+                content: " items";
+            }
+        }
+
+        & span#checkout {
+            &:before {
+                content: " checkout";
+            }
+        }
+
+        & span#addItems {
+            &:before {
+                //font-size:11px;
+                content: " back";
+            }
+        }
+
+        & span#clear {
+            &:before {
+                content: " clear";
+            }
+        }
+    }
+}
+
+button.vv-navigation {
+    min-width: $button-navigation-width;
+    max-width: $button-navigation-width;
+    width: $button-navigation-width;
+    min-height: $button-navigation-height;
+    max-height: $button-navigation-height;
+    height: $button-navigation-height;
+    text-transform: lowercase;
+    z-index: $button-zindex;
+    margin: 0;
+}
+
+md-content.header {
+    background: url('../assets/images/wood.png') repeat;
+    overflow: hidden;
+}
+
+section.menu-separator {
+    border-bottom: 1px dotted $alternate-color;
+    cursor: pointer;
+}
+
+div.md-toolbar-tools span.clue {
+    background-color: $alternate-color;
+    color: $default-hue2-bg;
+}
+
+md-whiteframe {
+    color: $alternate-color;
+
+    &.md-primary {
+
+
+        &.md-hue-1 {
+            background-color: $primary-1;
+        }
+
+        &.md-hue-2 {
+            background-color: $primary-2;
+        }
+
+        &.md-hue-3 {
+            background-color: $primary-3;
+        }
+    }
+
+    &.md-accent {
+
+
+        &.md-hue-1 {
+            background-color: $accent-1;
+        }
+
+        &.md-hue-2 {
+            background-color: $accent-2;
+        }
+
+        &.md-hue-3 {
+            background-color: $accent-3;
+        }
+    }
+}
+
+.frame md-whiteframe {
+    background: #fff;
+    //margin: 30px;
+    //height: 100px;
+}
+
+@media screen and (min-width: $layout-breakpoint-md) {
+    md-content.frame {
+        height: $frame-lg !important;
+        min-height: $frame-lg !important;
+        max-height: $frame-lg !important;
+
+        & md-whiteframe {
+            margin: 25px;
+            height: 200px;
+            padding: 15px;
+        }
+    }
+}
+
+@-webkit-keyframes bounce {
+    from, 20%, 53%, 80%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    40%, 43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0,-4px,0);
+        transform: translate3d(0,-4px,0);
+    }
+}
+
+@keyframes bounce {
+    from, 20%, 53%, 80%, 100% {
+        -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    40%, 43% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -30px, 0);
+        transform: translate3d(0, -30px, 0);
+    }
+
+    70% {
+        -webkit-animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        -webkit-transform: translate3d(0, -15px, 0);
+        transform: translate3d(0, -15px, 0);
+    }
+
+    90% {
+        -webkit-transform: translate3d(0,-4px,0);
+        transform: translate3d(0,-4px,0);
+    }
+}
+
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.025, 1.05, 1.05);
+        transform: scale3d(1.025, 1.05, 1.05);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.025, 1.05, 1.05);
+        transform: scale3d(1.025, 1.05, 1.05);
+    }
+
+    100% {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+vv-presentations {
+    @media screen and (min-width: $layout-breakpoint-gt-sm) {
+        & div.vv-right-column {
+            border-left: 1px solid #aaa;
+        }
+
+        & div.vv-last-row {
+            padding-bottom: 10px !important;
+        }
+
+        & div.vv-line:nth-child(even) {
+            background: $background-3;
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-sm) {
+        & div.vv-right-column {
+            border-left: none;
+        }
+
+        & div.vv-row:nth-child(odd), & div.vv-maprow:nth-child(odd) {
+            background: $background-3;
+        }
+    }
+
+    & div.header, div.footer {
+        background-color: #ffecb3;
+        text-align: center;
+    }
+
+    & div.vv-subhead {
+        text-align: center;
+    }
+
+    & div.vv-name {
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        & span.clue {
+            background-color: $toolbar-clue;
+            color: $alternate-color;
+        }
+    }
+
+    & div.vv-price {
+        text-align: right;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    & div.vv-row {
+        padding: 0;
+
+        &:hover {
+            background-color: $default-hue3-bg;
+            color: $alternate-color;
+            cursor: pointer;
+            -webkit-animation-duration: .75s;
+            animation-duration: .75s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: pulse;
+            animation-name: pulse;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+    }
+
+     & div.vv-maprow {
+        padding: 0;
+
+        &:hover {
+            background-color: $default-hue3-bg;
+            color: $alternate-color;
+            cursor: pointer;
+            -webkit-animation-duration: .5s;
+            animation-duration: .5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: pulse;
+            animation-name: pulse;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+    }
+}
+
+md-bottom-sheet.md-grid md-list-item {
+    height: 120px;
+
+    & .md-button {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    & .md-grid-text {
+        width: inherit;
+        padding-top: 0;
+        margin-bottom: 8px;
+    }
+}
+
+md-grid-tile {
+    @media screen and (min-width: $layout-breakpoint-gt-sm) {
+        &:nth-child(odd) {
+            border-right: 1px solid #aaa;
+        }
+
+        &:nth-child(4n+1), &:nth-child(4n+2) {
+            background: $background-3;
+        }
+
+        &:nth-last-child(1) {
+            padding-bottom: 10px !important;
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-sm) {
+        &:nth-child(even) {
+            background: $background-3;
+        }
+    }
+
+    & div.vv-name {
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        & span.clue {
+            background-color: $toolbar-clue;
+            color: $alternate-color;
+        }
+    }
+
+    & div.vv-price {
+        text-align: right;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    & figure {
+
+        &:hover {
+            background-color: $default-hue3-bg;
+            color: $alternate-color;
+            cursor: pointer;
+            -webkit-animation-duration: .75s;
+            animation-duration: .75s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-name: pulse;
+            animation-name: pulse;
+            -webkit-transform-origin: center bottom;
+            transform-origin: center bottom;
+        }
+    }
+}
+
+div.vv-row {
+    line-height: 44px;
+
+    @media screen and (min-width: $layout-breakpoint-gt-sm) {
+        &:nth-child(odd) {
+            border-right: 1px solid #aaa;
+        }
+
+        &:nth-child(4n+1), &:nth-child(4n+2) {
+            background: $background-3;
+        }
+
+        &:nth-last-child(1) {
+            padding-bottom: 10px !important;
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-sm) {
+        &:nth-child(even) {
+            background: $background-3;
+        }
+    }
+
+    & div.vv-name {
+        text-align: left;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        & span.clue {
+            background-color: $toolbar-clue;
+            color: $alternate-color;
+        }
+    }
+
+    & div.vv-price {
+        text-align: right;
+        padding-right: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    &:hover {
+        background-color: $default-hue3-bg;
+        color: $alternate-color;
+        cursor: pointer;
+        -webkit-animation-duration: .75s;
+        animation-duration: .75s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        -webkit-transform-origin: center bottom;
+        transform-origin: center bottom;
+    }
+}
+
+div.vv-maprow {
+    line-height: 22px;
+
+    @media screen and (min-width: $layout-breakpoint-gt-sm) {
+        &:nth-child(odd) {
+            border-right: 1px solid #aaa;
+        }
+
+        &:nth-child(4n+1), &:nth-child(4n+2) {
+            background: $background-3;
+        }
+
+        &:nth-last-child(1) {
+            padding-bottom: 10px !important;
+        }
+    }
+
+    @media screen and (max-width: $layout-breakpoint-sm) {
+        &:nth-child(even) {
+            background: $background-3;
+        }
+    }
+
+    & img.header {
+        height: 100px;
+        width: 100px;
+        border-radius: $border-radius-header;
+        padding: 5px;
+    }
+    & div.address{
+        padding-right: 10px;
+        text-align: right;
+    }
+
+    & div.footer {
+        line-height: 18px;
+        background-color: transparent;
+
+        & > img {
+            height: 30px;
+            width: 30px;
+            border-radius: $border-radius-reviewer;
+            padding: 5px;
+        }
+    }
+
+    &:hover {
+        background-color: $default-hue3-bg;
+        color: $alternate-color;
+        cursor: pointer;
+        -webkit-animation-duration: .5s;
+        animation-duration: .5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        -webkit-animation-name: pulse;
+        animation-name: pulse;
+        -webkit-transform-origin: center bottom;
+        transform-origin: center bottom;
+    }
+}
+
+@import "map";
+
+/**
+ *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// ninjector
+// endinjector
